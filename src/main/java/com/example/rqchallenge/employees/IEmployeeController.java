@@ -24,6 +24,8 @@ public interface IEmployeeController {
     @GetMapping("/topTenHighestEarningEmployeeNames")
     ResponseEntity<List<String>> getTopTenHighestEarningEmployeeNames();
 
+    // JF: I changed this from a Map to the Employee object to have Spring and Jackson handle
+    // deserialization of the request body.
     @PostMapping()
     ResponseEntity<Employee> createEmployee(@RequestBody Employee employeeInput);
 
