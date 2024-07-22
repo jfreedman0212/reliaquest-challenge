@@ -1,7 +1,5 @@
-package com.example.rqchallenge;
+package com.example.rqchallenge.employees;
 
-import com.example.rqchallenge.employees.Employee;
-import com.example.rqchallenge.employees.EmployeeService;
 import com.example.rqchallenge.employees.api.IEmployeeApi;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
