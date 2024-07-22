@@ -28,13 +28,42 @@ class RqChallengeApplicationTests {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    // just a sanity check to make sure everything is running
     @Test
-    void getsEmptyEmployeeList() {
+    public void getsEmptyEmployeeList() {
+        // Act
         final ResponseEntity<List> response = restTemplate.getForEntity(String.format("http://localhost:%d", port), List.class);
-
+        // Assert
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
         Assertions.assertNotNull(response.getBody());
         Assertions.assertEquals(0, response.getBody().size());
     }
 
+
+    @Test
+    public void createReadThenDelete() {
+        // first: create
+        final Employee newEmployee = restTemplate.postForObject(
+                String.format("http://localhost:%d", port),
+                new Employee(null, "My New One", 1000, 22, ""),
+                Employee.class
+        );
+        Assertions.assertNotNull(newEmployee);
+        Assertions.assertNotNull(newEmployee.getId());
+        // then: read
+        final Employee foundEmployee = restTemplate.getForObject(
+                String.format("http://localhost:%d/%d", port, newEmployee.getId()),
+                Employee.class
+        );
+        Assertions.assertNotNull(foundEmployee);
+        Assertions.assertEquals(foundEmployee.getId(), newEmployee.getId());
+        // then: delete
+        restTemplate.delete(String.format("http://localhost:%d/%d", port, newEmployee.getId()));
+        // then: make sure it's gone
+        final ResponseEntity<Employee> notFoundResponse = restTemplate.getForEntity(
+                String.format("http://localhost:%d/%d", port, newEmployee.getId()),
+                Employee.class
+        );
+        Assertions.assertEquals(notFoundResponse.getStatusCode(), HttpStatus.NOT_FOUND);
+    }
 }
