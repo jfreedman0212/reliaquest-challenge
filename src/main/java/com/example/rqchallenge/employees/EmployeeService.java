@@ -53,4 +53,14 @@ public class EmployeeService {
     public Optional<Employee> getEmployeeById(String id) {
         return employeeApi.getEmployeeById(id);
     }
+
+    public Employee create(Employee employee) {
+        return employeeApi.create(employee);
+    }
+
+    public void delete(String id) {
+        employeeApi.delete(id);
+    }
 }
+
+

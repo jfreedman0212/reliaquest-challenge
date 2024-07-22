@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,17 +19,17 @@ public class EmployeeServiceTest {
         IEmployeeApi mockApi = Mockito.mock(IEmployeeApi.class);
 
         List<Employee> mockList = List.of(
-                new Employee(1, "Bob Smith", BigDecimal.valueOf(200000, 2), 18, ""),
-                new Employee(2, "Josh Freedman", BigDecimal.valueOf(300000, 2), 20, ""),
-                new Employee(3, "Bob Robertson", BigDecimal.valueOf(100000, 2), 30, ""),
-                new Employee(4, "Jane Smith", BigDecimal.valueOf(1, 2), 35, ""),
-                new Employee(5, "Amaya Ashmore", BigDecimal.valueOf(1000000, 2), 50, ""),
-                new Employee(6, "John Doe", BigDecimal.valueOf(2, 2), 65, ""),
-                new Employee(7, "Toby Fox", BigDecimal.valueOf(500000, 2), 50, ""),
-                new Employee(8, "Linus Torvalds", BigDecimal.valueOf(11100000, 2), 100, ""),
-                new Employee(9, "Dan Abramov", BigDecimal.valueOf(300000, 2), 30, ""),
-                new Employee(10, "Clark Kent", BigDecimal.valueOf(300000, 2), 1000, ""),
-                new Employee(11, "Bob Smith II", BigDecimal.valueOf(212000, 2), 44, "")
+                new Employee(1, "Bob Smith", 200000, 18, ""),
+                new Employee(2, "Josh Freedman", 300000, 20, ""),
+                new Employee(3, "Bob Robertson", 100000, 30, ""),
+                new Employee(4, "Jane Smith", 1, 35, ""),
+                new Employee(5, "Amaya Ashmore", 1000000, 50, ""),
+                new Employee(6, "John Doe", 2, 65, ""),
+                new Employee(7, "Toby Fox", 500000, 50, ""),
+                new Employee(8, "Linus Torvalds", 11100000, 100, ""),
+                new Employee(9, "Dan Abramov", 300000, 30, ""),
+                new Employee(10, "Clark Kent", 300000, 1000, ""),
+                new Employee(11, "Bob Smith II", 212000, 44, "")
         );
 
         Mockito.when(mockApi.getAllEmployees()).thenReturn(mockList);

@@ -40,12 +40,18 @@ public class EmployeeApi implements IEmployeeApi {
     }
 
     @Override
-    public void create(Employee employee) {
-        // TODO: call API!
+    public Employee create(Employee employee) {
+        final EmployeeApiSingleResult result = restTemplate.postForObject(
+                "/create",
+                employee,
+                EmployeeApiSingleResult.class
+        );
+
+        return Objects.requireNonNull(result).getData();
     }
 
     @Override
     public void delete(String id) {
-        // TODO: call API!
+        restTemplate.delete("/delete/{id}", id);
     }
 }

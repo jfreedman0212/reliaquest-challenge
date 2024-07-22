@@ -1,18 +1,16 @@
 package com.example.rqchallenge.employees;
 
-import java.math.BigDecimal;
-
 public class Employee {
     private Integer id;
     private String employeeName;
-    private BigDecimal employeeSalary;
+    private Integer employeeSalary;
     private Integer employeeAge;
     private String profileImage;
 
     public Employee() {
     }
 
-    public Employee(Integer id, String employeeName, BigDecimal employeeSalary, Integer employeeAge, String profileImage) {
+    public Employee(Integer id, String employeeName, Integer employeeSalary, Integer employeeAge, String profileImage) {
         this.id = id;
         this.employeeName = employeeName;
         this.employeeSalary = employeeSalary;
@@ -36,11 +34,11 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public BigDecimal getEmployeeSalary() {
+    public Integer getEmployeeSalary() {
         return employeeSalary;
     }
 
-    public void setEmployeeSalary(BigDecimal employeeSalary) {
+    public void setEmployeeSalary(Integer employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
 

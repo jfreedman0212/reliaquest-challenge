@@ -26,7 +26,7 @@ public interface IEmployeeApi {
      * Creates a new employee with the provided data
      * @param employee the populated employee to create
      */
-    void create(Employee employee);
+    Employee create(Employee employee);
 
     /**
      * Deletes an employee by ID
